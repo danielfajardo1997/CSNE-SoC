@@ -1,0 +1,70 @@
+cff-version: 1.2.0
+message: >
+  If you use this work in your research, please cite it using
+  the metadata below, or use the 'Cite this repository' button
+  on GitHub which reads this file automatically.
+
+title: >
+  CSNE-SoC: A Configurable Systolic Neural Engine Core on SoC-FPGA —
+  Architecture, Integration, and Performance Characterization
+
+authors:
+  - family-names: Fajardo
+    given-names: Daniel
+    orcid: ""          # add your ORCID here: https://orcid.org
+    affiliation: ""    # add your institution here
+
+version: "0.1.0"
+date-released: "2026-05-07"
+license: MIT
+
+repository-code: "https://github.com/danielf/CSNE-SoC"
+
+abstract: >
+  CSNE-SoC is an open-source hardware/software co-design implementing
+  a scalable systolic array of INT8 MAC Processing Elements (PEs) on
+  the Intel Cyclone V SoC-FPGA (Terasic DE10-Nano). The project covers
+  the full stack from VHDL-2008 RTL design and Avalon-MM integration
+  through Linux HPS drivers and quantitative performance benchmarking.
+  The 1×1 PE achieves 0.160 MOPS over the LW-HPS2FPGA bridge with a
+  measured round-trip latency of 7 390 ns (mean). The architecture is
+  designed to scale to a 9×9 systolic array (81 PEs) for neural network
+  inference acceleration at the edge.
+
+keywords:
+  - systolic array
+  - neural network accelerator
+  - FPGA
+  - SoC-FPGA
+  - HPS
+  - Cyclone V
+  - DE10-Nano
+  - Avalon-MM
+  - VHDL
+  - edge computing
+  - MAC
+  - processing element
+  - hardware accelerator
+
+references:
+  - type: article
+    authors:
+      - family-names: Kung
+        given-names: H. T.
+    title: "Why systolic architectures?"
+    journal: "IEEE Computer"
+    volume: 15
+    issue: 1
+    pages: "37-46"
+    year: 1982
+    doi: "10.1109/MC.1982.1653825"
+
+  - type: conference-paper
+    authors:
+      - family-names: Jouppi
+        given-names: Norman P.
+    title: >
+      In-datacenter performance analysis of a tensor processing unit
+    collection-title: "Proceedings of ISCA 2017"
+    year: 2017
+    doi: "10.1145/3079856.3080246"
