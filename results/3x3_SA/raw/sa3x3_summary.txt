@@ -1,0 +1,48 @@
+=================================================================
+  IP_SA_3x3 Hardware Benchmark Summary
+  Platform : Terasic DE10-Nano  (Cyclone V SoC 5CSEBA6U23I7)
+  FPGA Clock: 50 MHz
+  Array    : 3x3 = 9 Processing Elements
+  MACs/op  : 9  (one full 3x3 matrix multiply = 3 k-slices)
+=================================================================
+
+[1] LATENCY per 3x3 matrix multiply  (1000 samples, flush each)
+    Mean     :  37617.8 ns  (1880.9 cycles)
+    Std-dev  :   2714.2 ns  ( 135.7 cycles)
+    Min      :  37420.0 ns  (1871.0 cycles)
+    Max      : 103420.0 ns  (5171.0 cycles)
+    Median   :  37420.0 ns  (1871.0 cycles)
+    Per MAC  :   4179.8 ns  ( 209.0 cycles)
+
+[2] THROUGHPUT  (1000 matrix multiplies, no flush)
+    Throughput  : 0.2585 MOPS  (28718.4 matrix mults/s)
+    Cycles/MAC  : 193.4  (at 50 MHz)
+
+[3] COMMUNICATION OVERHEAD  (1000 samples)
+    Mean     :   3046.4 ns  ( 152.3 cycles)
+    Std-dev  :    500.0 ns  (  25.0 cycles)
+
+[4] NET COMPUTE TIME  (latency - comms overhead)
+    Net total   :  34571.4 ns  (1728.6 cycles)
+    Net per MAC :   3841.3 ns  ( 192.1 cycles)
+
+[5] SOFTWARE BASELINE  (1000 matrix multiplies, ARM Cortex-A9)
+    Mean     :   1516.3 ns  (full 3x3 multiply)
+    Std-dev  :     23.8 ns
+    Per MAC  :    168.5 ns
+
+[6] SPEEDUP  (software / hardware)
+    Matrix multiply speedup : 0.04x
+    Per-MAC speedup         : 0.04x
+    -> Hardware is 24.81x SLOWER (bridge overhead dominates at 3x3)
+
+[7] COMPARISON WITH 1x1 PE (from pe_benchmark results)
+    1x1 latency ref  : ~7390 ns  (1 MAC)
+    3x3 latency/MAC  : 4179.8 ns
+    Bridge overhead  : 338.5 ns (amortised over 9 MACs vs 1)
+
+=================================================================
+  Bridge overhead is shared across the 3 k-slices within each
+  matrix multiply. As array size grows to NxN, the fixed bridge
+  cost is further amortised over N^2 MACs, increasing efficiency.
+=================================================================
